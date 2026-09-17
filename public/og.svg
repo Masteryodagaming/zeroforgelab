@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#060807"/>
+  <circle cx="980" cy="120" r="220" fill="#3dff8a" opacity="0.12"/>
+  <circle cx="180" cy="520" r="180" fill="#1db954" opacity="0.1"/>
+  <text x="80" y="290" font-family="system-ui,sans-serif" font-size="92" font-weight="700" fill="#eef2ef">ZeroForge</text>
+  <text x="80" y="370" font-family="system-ui,sans-serif" font-size="36" fill="#8b978f">Digital products, forged with precision.</text>
+  <text x="80" y="520" font-family="system-ui,sans-serif" font-size="28" fill="#3dff8a">zeroforgelab.com</text>
+</svg>
