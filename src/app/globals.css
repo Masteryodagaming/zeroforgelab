@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #060807;
-  --foreground: #eef2ef;
-  --muted: #8b978f;
-  --surface: #0d1210;
-  --surface-elevated: #121a16;
-  --border: rgba(61, 255, 138, 0.12);
-  --accent: #3dff8a;
-  --accent-dim: #1db954;
-  --accent-glow: rgba(61, 255, 138, 0.25);
-  --ring: rgba(61, 255, 138, 0.45);
+  --background: #07080c;
+  --foreground: #e8eef8;
+  --muted: #8b95a8;
+  --surface: #0d1018;
+  --surface-elevated: #141925;
+  --border: rgba(94, 196, 255, 0.14);
+  --ice: #5ec4ff;
+  --ice-bright: #9adbff;
+  --ice-glow: rgba(94, 196, 255, 0.28);
+  --ember: #ff8a3d;
+  --ember-dim: #c45a1a;
+  --ember-glow: rgba(255, 138, 61, 0.22);
+  --metal: #9aa3b2;
+  --ring: rgba(94, 196, 255, 0.5);
 }
 
 @theme inline {
@@ -20,9 +24,13 @@
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
   --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-dim: var(--accent-dim);
-  --color-accent-glow: var(--accent-glow);
+  --color-ice: var(--ice);
+  --color-ice-bright: var(--ice-bright);
+  --color-ice-glow: var(--ice-glow);
+  --color-ember: var(--ember);
+  --color-ember-dim: var(--ember-dim);
+  --color-ember-glow: var(--ember-glow);
+  --color-metal: var(--metal);
   --color-ring: var(--ring);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
@@ -55,7 +63,7 @@ body {
 }
 
 ::selection {
-  background: rgba(61, 255, 138, 0.28);
+  background: rgba(94, 196, 255, 0.3);
   color: #fff;
 }
 
@@ -63,32 +71,125 @@ body {
   font-family: var(--font-display), system-ui, sans-serif;
 }
 
-.grid-fade {
-  background-image:
-    linear-gradient(to right, rgba(61, 255, 138, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(61, 255, 138, 0.05) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 75%);
-}
-
-.glow-orb {
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-  filter: blur(40px);
-}
-
 .noise {
   pointer-events: none;
   position: fixed;
   inset: 0;
   z-index: 50;
-  opacity: 0.035;
+  opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Cinematic forge + ice stage */
+.stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 15%, rgba(94, 196, 255, 0.12), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 85% 80%, rgba(255, 138, 61, 0.1), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(255, 100, 40, 0.06), transparent 60%),
+    linear-gradient(180deg, #05060a 0%, #0a0c14 45%, #0b0a0c 100%);
+}
+
+.stage-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(94, 196, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(94, 196, 255, 0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, black 15%, transparent 72%);
+  opacity: 0.7;
+}
+
+.orb-ice {
+  position: absolute;
+  width: min(52vw, 420px);
+  height: min(52vw, 420px);
+  top: -8%;
+  left: 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(94, 196, 255, 0.35) 0%, rgba(94, 196, 255, 0.08) 40%, transparent 70%);
+  filter: blur(28px);
+  animation: pulse-orb 7s ease-in-out infinite;
+}
+
+.orb-ember {
+  position: absolute;
+  width: min(48vw, 380px);
+  height: min(48vw, 380px);
+  bottom: -12%;
+  right: 5%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 138, 61, 0.32) 0%, rgba(196, 90, 26, 0.1) 42%, transparent 70%);
+  filter: blur(32px);
+  animation: pulse-orb 8s ease-in-out infinite reverse;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.particle-ice {
+  background: #9adbff;
+  box-shadow: 0 0 8px 2px rgba(94, 196, 255, 0.55);
+  animation: drift-up linear infinite;
+}
+
+.particle-ember {
+  background: #ffb070;
+  box-shadow: 0 0 10px 2px rgba(255, 138, 61, 0.5);
+  animation: drift-up-ember linear infinite;
+}
+
+@keyframes pulse-orb {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes drift-up {
+  0% {
+    transform: translate3d(0, 20px, 0) scale(1);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(12px, -110vh, 0) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes drift-up-ember {
+  0% {
+    transform: translate3d(0, 40px, 0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(-18px, -100vh, 0) scale(0.4);
+    opacity: 0;
+  }
 }
 
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -96,37 +197,46 @@ body {
   }
 }
 
-@keyframes pulse-soft {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 0.9;
-  }
-}
-
 .animate-fade-up {
-  animation: fade-up 0.7s ease-out both;
+  animation: fade-up 0.75s ease-out both;
 }
 
 .animate-fade-up-delay-1 {
-  animation: fade-up 0.7s ease-out 0.1s both;
+  animation: fade-up 0.75s ease-out 0.12s both;
 }
 
 .animate-fade-up-delay-2 {
-  animation: fade-up 0.7s ease-out 0.2s both;
+  animation: fade-up 0.75s ease-out 0.24s both;
 }
 
 .animate-fade-up-delay-3 {
-  animation: fade-up 0.7s ease-out 0.3s both;
+  animation: fade-up 0.75s ease-out 0.36s both;
 }
 
-.animate-pulse-soft {
-  animation: pulse-soft 4s ease-in-out infinite;
+.animate-fade-up-delay-4 {
+  animation: fade-up 0.75s ease-out 0.48s both;
 }
 
 .focus-ring:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--ice);
   outline-offset: 3px;
+}
+
+.logo-frame {
+  background: transparent;
+  filter: drop-shadow(0 0 28px rgba(94, 196, 255, 0.22))
+    drop-shadow(0 12px 40px rgba(0, 0, 0, 0.55));
+}
+
+.glass-panel {
+  background: linear-gradient(
+    160deg,
+    rgba(20, 25, 37, 0.72) 0%,
+    rgba(13, 16, 24, 0.55) 100%
+  );
+  border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 20px 50px rgba(0, 0, 0, 0.35);
 }

@@ -1,12 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#work", label: "Work" },
-  { href: "#contact", label: "Contact" },
+  { href: "/about/", label: "About" },
+  { href: "/contact/", label: "Contact" },
 ];
 
 export default function Header() {
@@ -14,7 +13,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -29,42 +28,42 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
+      className={`sticky top-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-xl"
+          ? "border-b border-border bg-background/75 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-[4.5rem] sm:px-8">
-        <a
-          href="#top"
+      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5 sm:h-[4.25rem] sm:px-8">
+        <Link
+          href="/"
           className="focus-ring group flex items-center gap-2.5 rounded-md"
           aria-label="ZeroForge home"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-accent/30 bg-accent/10 text-sm font-bold text-accent transition group-hover:border-accent/50 group-hover:bg-accent/15">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-ice/35 bg-ice/10 font-mono text-xs font-bold tracking-tight text-ice transition group-hover:border-ice/55 group-hover:bg-ice/15">
             ZF
           </span>
           <span className="font-display text-lg font-semibold tracking-tight text-foreground">
             ZeroForge
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="focus-ring rounded-md px-3.5 py-2 text-sm text-muted transition hover:text-foreground"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#contact"
-            className="focus-ring ml-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-background transition hover:bg-accent/90"
+          <Link
+            href="/contact/"
+            className="focus-ring ml-2 rounded-full border border-ice/40 bg-ice/10 px-4 py-2 text-sm font-semibold text-ice transition hover:border-ice/60 hover:bg-ice/15"
           >
-            Start a project
-          </a>
+            Get in touch
+          </Link>
         </nav>
 
         <button
@@ -75,7 +74,6 @@ export default function Header() {
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
         >
-          <span className="sr-only">{open ? "Close" : "Menu"}</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
             {open ? (
               <path
@@ -101,24 +99,27 @@ export default function Header() {
           id="mobile-nav"
           className="border-t border-border bg-background/95 backdrop-blur-xl md:hidden"
         >
-          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-4" aria-label="Mobile">
+          <nav
+            className="mx-auto flex max-w-5xl flex-col gap-1 px-5 py-4"
+            aria-label="Mobile"
+          >
             {links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="focus-ring rounded-md px-3 py-3 text-base text-foreground"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
-              className="focus-ring mt-2 rounded-full bg-accent px-4 py-3 text-center text-sm font-semibold text-background"
+            <Link
+              href="/contact/"
+              className="focus-ring mt-2 rounded-full border border-ice/40 bg-ice/10 px-4 py-3 text-center text-sm font-semibold text-ice"
               onClick={() => setOpen(false)}
             >
-              Start a project
-            </a>
+              Get in touch
+            </Link>
           </nav>
         </div>
       )}

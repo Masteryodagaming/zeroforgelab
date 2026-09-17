@@ -1,6 +1,6 @@
 # ZeroForge
 
-Marketing site for **ZeroForge** (`zeroforgelab.com`) — a Canadian software and digital product studio.
+Temporary **Coming Soon** marketing site for **ZeroForge** (`zeroforgelab.com`) — a Canadian software and digital product studio. Full company site under construction.
 
 Built with **Next.js** (App Router), **TypeScript**, and **Tailwind CSS**. Configured for **static export** so it deploys cleanly to Cloudflare Pages (or any static host).
 
@@ -45,15 +45,15 @@ npx serve out
 3. Environment variables: none required for the static marketing site.
 4. Custom domain: point `zeroforgelab.com` (and `www`) to the Pages project.
 
-The contact form is **client-side only** — it opens a `mailto:` draft to `contact@zeroforgelab.com`. Wire a form backend (e.g. Cloudflare Workers + Resend, or Formspree) when you are ready for inbox submissions without a mail client.
+The notify / contact flows are **client-side `mailto:`** to `contact@zeroforgelab.com`. Wire a form backend when you are ready for inbox submissions without a mail client.
 
 ## Project structure
 
 ```
 src/
-  app/           # App Router layout, page, global styles
-  components/    # Header, Hero, About, Services, Work, Contact, Footer
-public/          # favicon, OG image, robots.txt, sitemap.xml
+  app/           # App Router: /, /about, /contact, layout, global styles
+  components/    # Header, Footer, AnimatedBackground, Logo, NotifyForm
+public/          # logo.png (from logo.jpeg), favicon, OG, robots, sitemap
 out/             # Static export (after build)
 ```
 

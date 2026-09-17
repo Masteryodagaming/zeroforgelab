@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { DM_Sans, Syne, JetBrains_Mono } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import AnimatedBackground from "@/components/AnimatedBackground";
 import "./globals.css";
 
 const display = Syne({
@@ -25,17 +28,17 @@ const siteUrl = "https://zeroforgelab.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ZeroForge — Digital products, forged with precision",
+    default: "ZeroForge — Coming Soon",
     template: "%s · ZeroForge",
   },
   description:
-    "ZeroForge is a Canadian software and digital product studio. We design and build modern web apps, brand sites, and digital tools that feel sharp, fast, and ready for the real world.",
+    "ZeroForge is forging something new. A Canadian software and digital product studio — site launching soon. Get notified at zeroforgelab.com.",
   keywords: [
     "ZeroForge",
+    "Coming Soon",
     "software studio",
     "web development",
     "digital products",
-    "Next.js",
     "Canada",
     "zeroforgelab",
   ],
@@ -50,23 +53,23 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: siteUrl,
     siteName: "ZeroForge",
-    title: "ZeroForge — Digital products, forged with precision",
+    title: "ZeroForge — Coming Soon",
     description:
-      "Canadian software studio crafting modern web apps, brand experiences, and digital tools.",
+      "Something sharp is taking shape. ZeroForge — Canadian software studio. Launching soon.",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "ZeroForge — Digital products, forged with precision",
+        alt: "ZeroForge — Coming Soon",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZeroForge — Digital products, forged with precision",
+    title: "ZeroForge — Coming Soon",
     description:
-      "Canadian software studio crafting modern web apps, brand experiences, and digital tools.",
+      "Something sharp is taking shape. ZeroForge — Canadian software studio. Launching soon.",
     images: ["/og.png"],
   },
   robots: {
@@ -88,9 +91,14 @@ export default function RootLayout({
       lang="en-CA"
       className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-background text-foreground">
+      <body className="relative min-h-full bg-background text-foreground">
         <div className="noise" aria-hidden />
-        {children}
+        <AnimatedBackground />
+        <div className="relative z-10 flex min-h-full flex-col">
+          <Header />
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );
