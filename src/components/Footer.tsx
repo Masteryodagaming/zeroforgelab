@@ -25,6 +25,12 @@ export default function Footer() {
             Home
           </Link>
           <Link
+            href="/rinkrat/"
+            className="focus-ring rounded-md hover:text-foreground"
+          >
+            RinkRat
+          </Link>
+          <Link
             href="/about/"
             className="focus-ring rounded-md hover:text-foreground"
           >
