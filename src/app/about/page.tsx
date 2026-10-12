@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 const description =
-  "ZeroForge is a digital product studio founded by Josh Milliea in Elsipogtog, New Brunswick. Our goal is to make technology and everyday life fit together, so it’s easy and anyone can use it.";
+  "ZeroForge is a digital product studio based in NB, Canada. Our goal is to make technology and everyday life fit together, so it’s easy and anyone can use it.";
 
 export const metadata: Metadata = {
   title: "About",
@@ -85,8 +85,7 @@ export default function AboutPage() {
           Making technology fit <span className="text-ice">everyday life.</span>
         </h1>
         <p className="animate-fade-up-delay-2 mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-          ZeroForge is a digital product studio founded by Josh Milliea in
-          Elsipogtog, New Brunswick, Canada.
+          ZeroForge is a digital product studio based in NB, Canada.
         </p>
       </section>
 
@@ -106,7 +105,7 @@ export default function AboutPage() {
               id="story"
               className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
             >
-              A note from Josh
+              A note from the founder
             </h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted sm:text-lg">
               <p>
@@ -128,14 +127,14 @@ export default function AboutPage() {
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ice/40 bg-ice/10 font-display text-sm font-semibold text-ice"
                 aria-hidden
               >
-                JM
+                ZF
               </span>
               <div>
                 <p className="font-display text-base font-semibold text-foreground">
-                  Josh (Joshua Milliea)
+                  Founder, ZeroForge
                 </p>
                 <p className="text-sm text-muted">
-                  Founder, ZeroForge · Elsipogtog, New Brunswick
+                  NB, Canada
                 </p>
               </div>
             </div>
