@@ -28,16 +28,18 @@ const siteUrl = "https://zeroforgelab.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ZeroForge — Coming Soon",
+    default: "ZeroForge — We turn ideas into reality",
     template: "%s · ZeroForge",
   },
   description:
-    "ZeroForge is forging something new. A Canadian software and digital product studio — site launching soon. Get notified at zeroforgelab.com.",
+    "ZeroForge is a Canadian digital product studio. Bring us an idea and we’ll design, build, and launch it: mobile and web apps, management tools, games, and custom tools for local businesses.",
   keywords: [
     "ZeroForge",
-    "Coming Soon",
+    "digital product studio",
+    "custom app development",
     "software studio",
     "web development",
+    "mobile apps",
     "digital products",
     "Canada",
     "zeroforgelab",
@@ -53,23 +55,23 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: siteUrl,
     siteName: "ZeroForge",
-    title: "ZeroForge — Coming Soon",
+    title: "ZeroForge — We turn ideas into reality",
     description:
-      "Something sharp is taking shape. ZeroForge — Canadian software studio. Launching soon.",
+      "ZeroForge is a Canadian digital product studio. Bring us an idea, and we’ll design, build, and launch it.",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "ZeroForge — Coming Soon",
+        alt: "ZeroForge — We turn ideas into reality",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZeroForge — Coming Soon",
+    title: "ZeroForge — We turn ideas into reality",
     description:
-      "Something sharp is taking shape. ZeroForge — Canadian software studio. Launching soon.",
+      "ZeroForge is a Canadian digital product studio. Bring us an idea, and we’ll design, build, and launch it.",
     images: ["/og.png"],
   },
   robots: {

@@ -61,10 +61,10 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="/contact/"
-            className="focus-ring ml-2 rounded-full border border-ice/40 bg-ice/10 px-4 py-2 text-sm font-semibold text-ice transition hover:border-ice/60 hover:bg-ice/15"
+            href="/request/"
+            className="focus-ring ml-2 rounded-full bg-ice px-4 py-2 text-sm font-semibold text-background shadow-[0_0_18px_rgba(94,196,255,0.3)] transition hover:bg-ice-bright"
           >
-            Get in touch
+            Start a project
           </Link>
         </nav>
 
@@ -116,11 +116,11 @@ export default function Header() {
               </Link>
             ))}
             <Link
-              href="/contact/"
-              className="focus-ring mt-2 rounded-full border border-ice/40 bg-ice/10 px-4 py-3 text-center text-sm font-semibold text-ice"
+              href="/request/"
+              className="focus-ring mt-2 rounded-full bg-ice px-4 py-3 text-center text-sm font-semibold text-background"
               onClick={() => setOpen(false)}
             >
-              Get in touch
+              Start a project
             </Link>
           </nav>
         </div>

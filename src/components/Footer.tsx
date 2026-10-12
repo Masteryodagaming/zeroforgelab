@@ -14,7 +14,7 @@ export default function Footer() {
             <p className="font-display text-sm font-semibold text-foreground">
               ZeroForge
             </p>
-            <p className="whitespace-nowrap text-xs text-muted">Coming soon · zeroforgelab.com</p>
+            <p className="whitespace-nowrap text-xs text-muted">Digital product studio · Canada</p>
           </div>
         </div>
         <nav
@@ -41,6 +41,12 @@ export default function Footer() {
             className="focus-ring rounded-md hover:text-foreground"
           >
             About
+          </Link>
+          <Link
+            href="/request/"
+            className="focus-ring rounded-md hover:text-foreground"
+          >
+            Start a project
           </Link>
           <Link
             href="/contact/"
