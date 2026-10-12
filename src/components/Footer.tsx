@@ -14,7 +14,7 @@ export default function Footer() {
             <p className="font-display text-sm font-semibold text-foreground">
               ZeroForge
             </p>
-            <p className="text-xs text-muted">Coming soon · zeroforgelab.com</p>
+            <p className="whitespace-nowrap text-xs text-muted">Coming soon · zeroforgelab.com</p>
           </div>
         </div>
         <nav
@@ -29,6 +29,12 @@ export default function Footer() {
             className="focus-ring rounded-md hover:text-foreground"
           >
             RinkRat
+          </Link>
+          <Link
+            href="/supercrib/"
+            className="focus-ring rounded-md hover:text-foreground"
+          >
+            SuperCrib
           </Link>
           <Link
             href="/about/"
@@ -49,7 +55,7 @@ export default function Footer() {
             contact@zeroforgelab.com
           </a>
         </nav>
-        <p className="text-xs text-muted">© {year} ZeroForge. All rights reserved.</p>
+        <p className="text-xs text-muted sm:shrink-0 sm:whitespace-nowrap">© {year} ZeroForge. All rights reserved.</p>
       </div>
     </footer>
   );

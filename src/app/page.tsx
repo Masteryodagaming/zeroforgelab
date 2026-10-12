@@ -33,42 +33,80 @@ export default function HomePage() {
           <NotifyForm />
         </div>
 
-        <Link
-          href="/rinkrat/"
-          className="animate-fade-up-delay-4 glass-panel focus-ring group mt-10 flex w-full max-w-md items-center gap-4 rounded-2xl py-3 pl-3 pr-5 text-left transition hover:border-ice/40"
-        >
-          {/* Icon has its black background keyed out to transparency. */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/rinkrat/rinkrat-icon.webp"
-            alt=""
-            width={320}
-            height={292}
-            className="h-16 w-auto shrink-0 sm:h-[4.5rem]"
-            decoding="async"
-          />
-          <div className="min-w-0 flex-1">
-            <p className="flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ember">
-              <span
-                className="inline-block h-1.5 w-1.5 rounded-full bg-ember shadow-[0_0_8px_2px_rgba(255,138,61,0.6)]"
-                aria-hidden
-              />
-              First up · Live at our first arena
-            </p>
-            <p className="mt-1 font-display text-lg font-semibold tracking-tight text-foreground">
-              Rink<span className="text-ice">Rat</span>
-            </p>
-            <p className="mt-0.5 text-sm text-muted">
-              Low-cost arena management for any rink.
-            </p>
-          </div>
-          <span
-            className="shrink-0 text-xl text-ice transition group-hover:translate-x-1"
-            aria-hidden
+        <div className="animate-fade-up-delay-4 mt-10 grid w-full max-w-2xl gap-3 sm:grid-cols-2">
+          <Link
+            href="/rinkrat/"
+            className="glass-panel focus-ring group flex w-full items-center gap-3 rounded-2xl py-3 pl-3 pr-4 text-left transition hover:border-ice/40"
           >
-            →
-          </span>
-        </Link>
+            {/* Icon has its black background keyed out to transparency. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/rinkrat/rinkrat-icon.webp"
+              alt=""
+              width={320}
+              height={292}
+              className="h-14 w-auto shrink-0"
+              decoding="async"
+            />
+            <div className="min-w-0 flex-1">
+              <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-ember">
+                <span
+                  className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-ember shadow-[0_0_8px_2px_rgba(255,138,61,0.6)]"
+                  aria-hidden
+                />
+                Live at our first arena
+              </p>
+              <p className="mt-1 font-display text-lg font-semibold tracking-tight text-foreground">
+                Rink<span className="text-ice">Rat</span>
+              </p>
+              <p className="mt-0.5 text-sm text-muted">
+                Low-cost arena management for any rink.
+              </p>
+            </div>
+            <span
+              className="shrink-0 text-xl text-ice transition group-hover:translate-x-1"
+              aria-hidden
+            >
+              →
+            </span>
+          </Link>
+
+          <Link
+            href="/supercrib/"
+            className="glass-panel focus-ring group flex w-full items-center gap-3 rounded-2xl py-3 pl-3 pr-4 text-left transition hover:border-gold/40"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/supercrib/supercrib-icon.webp"
+              alt=""
+              width={256}
+              height={256}
+              className="h-14 w-14 shrink-0 rounded-[0.9rem] border border-gold/30 shadow-[0_0_16px_rgba(230,184,79,0.18)]"
+              decoding="async"
+            />
+            <div className="min-w-0 flex-1">
+              <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-gold">
+                <span
+                  className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-gold shadow-[0_0_8px_2px_rgba(230,184,79,0.6)]"
+                  aria-hidden
+                />
+                Free to play
+              </p>
+              <p className="mt-1 font-display text-lg font-semibold tracking-tight text-foreground">
+                Super<span className="text-gold">Crib</span>
+              </p>
+              <p className="mt-0.5 text-sm text-muted">
+                Two-player cribbage to 241.
+              </p>
+            </div>
+            <span
+              className="shrink-0 text-xl text-gold transition group-hover:translate-x-1"
+              aria-hidden
+            >
+              →
+            </span>
+          </Link>
+        </div>
 
         <div className="animate-fade-up-delay-4 mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm">
           <Link
