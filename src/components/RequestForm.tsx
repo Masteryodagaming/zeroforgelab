@@ -380,8 +380,8 @@ export default function RequestForm() {
 
       <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs leading-relaxed text-muted">
-          <span className="text-ember">*</span> Required. Submitting opens
-          your email app with your request ready to send to {REQUEST_EMAIL}.
+          <span className="text-ember">*</span> Required. Your request
+          comes straight to our team, and we reply by email.
         </p>
         <button
           type="submit"

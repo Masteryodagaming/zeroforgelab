@@ -12,8 +12,8 @@
 export const REQUEST_EMAIL = "founder@zeroforgelab.com";
 
 /** "mailto" opens the visitor's email app. "endpoint" POSTs JSON to REQUEST_ENDPOINT. */
-export const SUBMIT_METHOD: "mailto" | "endpoint" = "mailto";
-export const REQUEST_ENDPOINT = "";
+export const SUBMIT_METHOD: "mailto" | "endpoint" = "endpoint";
+export const REQUEST_ENDPOINT = "/api/request";
 
 export const PROJECT_TYPES = [
   "Mobile app",
@@ -126,8 +126,12 @@ export async function submitProductRequest(
   r: ProductRequest,
 ): Promise<"mailto" | "endpoint"> {
   if (SUBMIT_METHOD === "endpoint" && REQUEST_ENDPOINT) {
-    await submitViaEndpoint(r);
-    return "endpoint";
+    try {
+      await submitViaEndpoint(r);
+      return "endpoint";
+    } catch {
+      // Fall back to the visitor's email app if direct sending fails.
+    }
   }
   window.location.href = buildMailtoUrl(r);
   return "mailto";
