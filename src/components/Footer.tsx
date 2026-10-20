@@ -61,7 +61,7 @@ export default function Footer() {
             contact@zeroforgelab.com
           </a>
         </nav>
-        <p className="text-xs text-muted sm:shrink-0 sm:whitespace-nowrap">© {year} ZeroForge. All rights reserved.</p>
+        <p className="text-xs text-muted sm:shrink-0 sm:whitespace-nowrap">© {year} ZeroForge Labs. All rights reserved.</p>
       </div>
     </footer>
   );
